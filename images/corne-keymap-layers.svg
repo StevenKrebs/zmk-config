@@ -247,9 +247,7 @@
 <g transform="rotate(0.0 930.0 926.6)"><rect class="key" x="896.0" y="890.6" rx="6" width="68" height="72.0"/></g>
 <g transform="rotate(0.0 1002.0 944.6)"><rect class="key" x="968.0" y="908.6" rx="6" width="68" height="72.0"/></g>
 <g transform="rotate(0.0 268.0 1042.6)"><rect class="thumb" x="234.0" y="1006.6" rx="6" width="68" height="72.0"/></g>
-<text class="label" text-anchor="middle" x="268.0" y="1046.6">
-<tspan x="268.0" dy="0">⇧⌥2</tspan>
-</text>
+<text class="label" text-anchor="middle" x="268.0" y="1046.6"><tspan x="268.0" dy="0">€</tspan></text>
 <g transform="rotate(12.0 360.0 1042.6)"><rect class="thumb" x="326.0" y="1006.6" rx="6" width="68" height="72.0"/></g>
 <text class="label" text-anchor="middle" x="360.0" y="1046.6">
 <tspan x="360.0" dy="0">0</tspan>
@@ -351,9 +349,7 @@
 <g transform="rotate(0.0 930.0 1494.6)"><rect class="key" x="896.0" y="1458.6" rx="6" width="68" height="72.0"/></g>
 <g transform="rotate(0.0 1002.0 1512.6)"><rect class="key" x="968.0" y="1476.6" rx="6" width="68" height="72.0"/></g>
 <g transform="rotate(0.0 268.0 1610.6)"><rect class="thumb" x="234.0" y="1574.6" rx="6" width="68" height="72.0"/></g>
-<text class="label" text-anchor="middle" x="268.0" y="1614.6">
-<tspan x="268.0" dy="0">⇧⌥8</tspan>
-</text>
+<text class="label" text-anchor="middle" x="268.0" y="1614.6"><tspan x="268.0" dy="0">°</tspan></text>
 <g transform="rotate(12.0 360.0 1610.6)"><rect class="thumb" x="326.0" y="1574.6" rx="6" width="68" height="72.0"/></g>
 <text class="label" text-anchor="middle" x="360.0" y="1614.6">
 <tspan x="360.0" dy="0">)</tspan>
@@ -488,10 +484,7 @@
 <tspan x="268.0" dy="12">ojis</tspan>
 </text>
 <g transform="rotate(12.0 360.0 2178.6)"><rect class="thumb" x="326.0" y="2142.6" rx="6" width="68" height="72.0"/></g>
-<text class="label" text-anchor="middle" x="360.0" y="2176.6">
-<tspan x="360.0" dy="0">C_AC_SEA</tspan>
-<tspan x="360.0" dy="12">RCH</tspan>
-</text>
+<text class="label" text-anchor="middle" x="360.0" y="2176.6"><tspan x="360.0" dy="0">Spotlight</tspan></text>
 <g transform="rotate(24.0 450.6 2175.8)"><rect class="thumb" x="416.6" y="2121.8" rx="6" width="68" height="108.0"/></g>
 <text class="label" text-anchor="middle" x="450.6" y="2167.8">
 <tspan x="450.6" dy="0">caps_log</tspan>

@@ -11,13 +11,13 @@ Both firmwares are based on a custom **QWERTY version of [Miryoku](https://githu
 | Branch | Keyboard | Keymap | Firmware |
 | --- | --- | --- | --- |
 | [`corne-5col`](https://github.com/StevenKrebs/zmk-config/tree/corne-5col) | Keebart Corne Choc Pro BT, five columns | [`corne_choc_pro_5col.keymap`](https://github.com/StevenKrebs/zmk-config/blob/corne-5col/config/corne_choc_pro_5col.keymap) | [Download ZIP](https://github.com/StevenKrebs/zmk-config/releases/download/corne-5col-v1.0.5/corne-5col-v1.0.5.zip) |
-| [`piantor-5col`](https://github.com/StevenKrebs/zmk-config/tree/piantor-5col) | Keebart Piantor Pro BT, five columns | [`piantor_pro_bt_5col.keymap`](https://github.com/StevenKrebs/zmk-config/blob/piantor-5col/config/piantor_pro_bt_5col.keymap) | [Download ZIP](https://github.com/StevenKrebs/zmk-config/releases/download/piantor-5col-v1.0.6/piantor-5col-v1.0.6.zip) |
+| [`piantor-5col`](https://github.com/StevenKrebs/zmk-config/tree/piantor-5col) | Keebart Piantor Pro BT, five columns | [`piantor_pro_bt_5col.keymap`](https://github.com/StevenKrebs/zmk-config/blob/piantor-5col/config/piantor_pro_bt_5col.keymap) | [Download ZIP](https://github.com/StevenKrebs/zmk-config/releases/download/piantor-5col-v1.0.7/piantor-5col-v1.0.7.zip) |
 
 Each branch retains its own board definitions, physical layout, editor metadata, and firmware targets. Use the firmware for your exact keyboard and half. Both builds use ZMK `v0.3`.
 
 ## Keymaps
 
-Each layer is drawn on its keyboard's staggered key geometry, including its thumb cluster. BASE, NUM, and SYM show keyboard legends; other layers retain source aliases, with modifiers displayed as glyphs (`⇧`, `⌃`, `⌥`, `⌘`). Functional key glyphs are `⇥` Tab, `⎋` Escape, `␣` Space, `↵` Return, `⌫` Backspace, and `⌦` Delete. The GLOBE key uses Apple’s [Globe key symbol](https://support.apple.com/en-my/102650). BASE dual-action keys show `tap / hold`. Layer-access thumb holds are labeled with the layer they activate: NUM, SYM, FUN, or NAV. `↳` means transparent: it uses the next lower active layer's binding, which may not be BASE. A blank key has no binding on that layer.
+Each layer is drawn on its keyboard's staggered key geometry, including its thumb cluster. BASE, NUM, and SYM show keyboard legends; other layers retain source aliases, with modifiers displayed as glyphs (`⇧`, `⌃`, `⌥`, `⌘`). `⇧⌥2` is shown as `€`, `⇧⌥8` as `°`, and `C_AC_SEARCH` as **Spotlight**. Functional key glyphs are `⇥` Tab, `⎋` Escape, `␣` Space, `↵` Return, `⌫` Backspace, and `⌦` Delete. The GLOBE key uses Apple’s [Globe key symbol](https://support.apple.com/en-my/102650). BASE dual-action keys show `tap / hold`. Layer-access thumb holds are labeled with the layer they activate: NUM, SYM, FUN, or NAV. `↳` means transparent: it uses the next lower active layer's binding, which may not be BASE. A blank key has no binding on that layer.
 
 <details>
 <summary>Corne · 5-column keymap</summary>
@@ -32,6 +32,21 @@ Each layer is drawn on its keyboard's staggered key geometry, including its thum
 ![Piantor 5-column keymap across BASE, NUM, SYM, FUN, NAV, and SYS layers](images/piantor-keymap-layers.svg)
 
 </details>
+
+### Corne and Piantor differences
+
+Both maps use the same six layer concepts, but their thumb assignments and several other bindings differ:
+
+| Area | Corne · 5-column | Piantor · 5-column |
+| --- | --- | --- |
+| BASE thumb taps, left to right | Tab, Esc, Space, Return, Backspace, Delete | Tab, Space, Esc, Backspace, Return, Delete |
+| FUN access | Hold Delete (Delete taps) | Hold Esc (Esc taps) |
+| Hyper | Hold Esc (Esc taps) | Hold Delete (Delete taps) |
+| NUM/SYM right home row | Four positions are transparent and inherit the lower active layer | Explicit right GUI, Alt, Ctrl, and Shift keys occupy those positions |
+| FUN thumb shortcuts | Emoji, Caps Logic, and Search occupy the left thumb cluster | Search, Caps Logic, and Emoji occupy the right thumb cluster |
+| NAV thumbs | Tab, Hyper, Space, Return, Backspace, and Delete | Left thumb cluster is blank; right cluster has Backspace, Return, and Hyper/Delete |
+
+The Piantor FUN layer also places its screen-lock and media controls differently. The diagrams above show those positions for each board; use the matching diagram and firmware for your keyboard.
 
 ## Shared features
 
@@ -81,7 +96,7 @@ These special shortcuts send their complete chord for the selected OS mode:
 
 Each firmware workflow builds commits pushed to its matching branch, pull requests, or manual runs. Tag pushes do not start duplicate builds. To build a change, commit and push it to the matching firmware branch. Open [Actions](https://github.com/StevenKrebs/zmk-config/actions) and select the **Build ZMK firmware** run for that branch. The documentation-only `main` branch has no build workflow.
 
-The [Corne v1.0.5 release](https://github.com/StevenKrebs/zmk-config/releases/tag/corne-5col-v1.0.5) and [Piantor v1.0.6 release](https://github.com/StevenKrebs/zmk-config/releases/tag/piantor-5col-v1.0.6) each contain one ZIP with left and right firmware plus separate left and right **settings-reset** images. Choose the matching board and half. Settings-reset images clear stored settings, including per-profile OS mode; they are maintenance images, not the normal keyboard firmware.
+The [Corne v1.0.5 release](https://github.com/StevenKrebs/zmk-config/releases/tag/corne-5col-v1.0.5) and [Piantor v1.0.7 release](https://github.com/StevenKrebs/zmk-config/releases/tag/piantor-5col-v1.0.7) each contain one ZIP with left and right firmware plus separate left and right **settings-reset** images. Choose the matching board and half. Settings-reset images clear stored settings, including per-profile OS mode; they are maintenance images, not the normal keyboard firmware.
 
 Each run also provides the merged `firmware` artifact for test builds without a release.
 
