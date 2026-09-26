@@ -435,7 +435,7 @@
 <tspan x="804.0" dy="0">C_MUTE</tspan>
 </text>
 <g transform="rotate(0.0 876.0 2054.0)"><rect class="key" x="842.0" y="2018.0" rx="6" width="68" height="72.0"/></g>
-<text class="label" text-anchor="middle" x="876.0" y="2058.0"><tspan x="876.0" dy="0">C_VOLUME_DOWN</tspan></text>
+<text class="label" text-anchor="middle" x="876.0" y="2058.0"><tspan x="876.0" dy="-5">C_VOLUME</tspan><tspan x="876.0" dy="12">DOWN</tspan></text>
 <g transform="rotate(0.0 948.0 2072.0)"><rect class="key" x="914.0" y="2036.0" rx="6" width="68" height="72.0"/></g>
 <g transform="rotate(0.0 1020.0 2126.0)"><rect class="key" x="986.0" y="2090.0" rx="6" width="68" height="72.0"/></g>
 <g transform="rotate(-5.0 321.6 2169.2)"><rect class="thumb" x="287.6" y="2133.2" rx="6" width="68" height="72.0"/></g>
@@ -693,6 +693,6 @@
 <text class="label" text-anchor="middle" x="1020.0" y="1986.0"><tspan x="1020.0" dy="0">screen_lock</tspan></text>
 <text class="label" text-anchor="middle" x="948.0" y="2076.0"><tspan x="948.0" dy="0">C_VOL_UP</tspan></text>
 <text class="label" text-anchor="middle" x="631.2" y="2194.1"><tspan x="631.2" dy="0">Spotlight</tspan></text>
-<text class="label" text-anchor="middle" x="728.4" y="2173.2"><tspan x="728.4" dy="0">caps_logic(CAPS, 0)</tspan></text>
+<text class="label" text-anchor="middle" x="728.4" y="2173.2"><tspan x="728.4" dy="0">Caps Logic</tspan></text>
 <text class="label" text-anchor="middle" x="822.0" y="2166.0"><tspan x="822.0" dy="0">emojis</tspan></text>
 </svg>
