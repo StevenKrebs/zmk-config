@@ -1,0 +1,18 @@
+include:
+  - board: piantor_pro_bt_5col_left
+    snippet: studio-rpc-usb-uart
+    shield: sharp_mip
+    cmake-args: -DCONFIG_ZMK_STUDIO=y
+    artifact-name: piantor_pro_bt_5col_left
+  - board: piantor_pro_bt_5col_right
+    shield: sharp_mip
+    snippet: studio-rpc-usb-uart
+    artifact-name: piantor_pro_bt_5col_right
+  - board: piantor_pro_bt_5col_left
+    shield: settings_reset
+    snippet: studio-rpc-usb-uart
+    artifact-name: piantor_pro_bt_5col_left_settings_reset
+  - board: piantor_pro_bt_5col_right
+    shield: settings_reset
+    snippet: studio-rpc-usb-uart
+    artifact-name: piantor_pro_bt_5col_right_settings_reset

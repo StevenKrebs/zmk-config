@@ -1,0 +1,5 @@
+description: Toggle the Sharp MIP OS keymap mode
+
+compatible: "zmk,behavior-os-mode"
+
+include: zero_param.yaml

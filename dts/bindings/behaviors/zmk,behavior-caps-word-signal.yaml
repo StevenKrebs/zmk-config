@@ -1,0 +1,5 @@
+description: Caps Word behavior with a logical state-change signal
+
+compatible: "zmk,behavior-caps-word-signal"
+
+include: zero_param.yaml

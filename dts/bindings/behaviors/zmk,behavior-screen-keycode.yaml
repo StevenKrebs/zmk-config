@@ -1,0 +1,13 @@
+description: Send a screen capture keycode based on the active OS mode
+
+compatible: "zmk,behavior-screen-keycode"
+
+include: zero_param.yaml
+
+properties:
+  mac-key:
+    type: int
+    required: true
+  windows-key:
+    type: int
+    required: true

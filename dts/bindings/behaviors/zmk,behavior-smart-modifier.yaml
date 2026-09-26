@@ -1,0 +1,11 @@
+description: Send a modifier chord based on the active OS mode
+compatible: "zmk,behavior-smart-modifier"
+include: one_param.yaml
+
+properties:
+  mac-key:
+    type: int
+    required: true
+  windows-key:
+    type: int
+    required: true

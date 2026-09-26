@@ -1,0 +1,230 @@
+/*
+ * Copyright (c) 2020 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/rgb.h>
+
+/ {
+    chosen { zmk,physical-layout = &five_col_layout; };
+
+    behaviors {
+        smart_shift: smart_shift {
+            compatible = "zmk,behavior-smart-shift";
+            #binding-cells = <0>;
+            label = "Toggle Smart Shift";
+        };
+
+        // Assign &smart_shift to any key to toggle automatic capitalization.
+
+        os: os {
+            compatible = "zmk,behavior-os-mode";
+            #binding-cells = <0>;
+            label = "OS";
+        };
+
+        screen_full: screen_full {
+            compatible = "zmk,behavior-screen-keycode";
+            #binding-cells = <0>;
+            mac-key = <LS(LG(N3))>;
+            windows-key = <LG(PRINTSCREEN)>;
+            label = "Screen Full";
+        };
+
+        screen_area: screen_area {
+            compatible = "zmk,behavior-screen-keycode";
+            #binding-cells = <0>;
+            mac-key = <LS(LG(N4))>;
+            windows-key = <LA(PRINTSCREEN)>;
+            label = "Screen Area";
+        };
+
+        screen_adj: screen_adj {
+            compatible = "zmk,behavior-screen-keycode";
+            #binding-cells = <0>;
+            mac-key = <LS(LG(N5))>;
+            windows-key = <LS(LG(S))>;
+            label = "Screen Adj";
+        };
+
+        meta_os_logic: meta_os_logic {
+            compatible = "zmk,behavior-smart-modifier";
+            #binding-cells = <1>;
+            mac-key = <LG(LEFT_SHIFT)>;
+            windows-key = <LC(LEFT_SHIFT)>;
+            label = "META_OS_LOGIC";
+        };
+
+        hyper_os_logic: hyper_os_logic {
+            compatible = "zmk,behavior-smart-modifier";
+            #binding-cells = <1>;
+            mac-key = <LA(LG(LEFT_CONTROL))>;
+            windows-key = <LA(LEFT_CONTROL)>;
+            label = "HYPER_OS_LOGIC";
+        };
+
+        meta: meta {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            bindings = <&meta_os_logic>, <&kp>;
+
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            label = "META";
+        };
+
+        hyper: hyper {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            bindings = <&hyper_os_logic>, <&kp>;
+
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            label = "HYPER";
+        };
+
+        thrm_left: thrm_left {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+            hold-trigger-key-positions = <
+                5  6  7  8  9
+                15 16 17 18 19
+                25 26 27 28 29
+                30 31 32 33 34 35
+            >;
+
+            hold-trigger-on-release;
+            bindings = <&kp>, <&kp>;
+
+            label = "THRM_LEFT";
+        };
+
+        thrm_right: thrm_right {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+            hold-trigger-key-positions = <
+                0  1  2  3  4
+                10 11 12 13 14
+                20 21 22 23 24
+                30 31 32 33 34 35
+            >;
+
+            hold-trigger-on-release;
+            bindings = <&kp>, <&kp>;
+
+            label = "THRM_RIGHT";
+        };
+
+        caps_logic: caps_logic {
+            compatible = "zmk,behavior-hold-tap";
+            label = "CAPS_LOGIC";
+            bindings = <&kp>, <&caps_word_signal>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+        };
+
+        caps_word_signal: caps_word_signal {
+            compatible = "zmk,behavior-caps-word-signal";
+            #binding-cells = <0>;
+        };
+
+        emojis: emojis {
+            compatible = "zmk,behavior-screen-keycode";
+            #binding-cells = <0>;
+            mac-key = <LC(LG(SPACE))>;
+            windows-key = <LG(PERIOD)>;
+            label = "EMOJIS";
+        };
+
+        screen_lock: screen_lock {
+            compatible = "zmk,behavior-screen-keycode";
+            #binding-cells = <0>;
+            mac-key = <LC(LG(Q))>;
+            windows-key = <LG(L)>;
+            label = "SCREEN_LOCK";
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+
+        sys_layer {
+            bindings = <&tog 5>;
+            key-positions = <32 33>;
+            layers = <0 5>;
+        };
+
+        nav_layer {
+            bindings = <&tog 4>;
+            key-positions = <31 34>;
+        };
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        BASE {
+            display-name = "BASE";
+
+            // Keebart's five_col_layout preserves the six thumb positions.
+
+            bindings = <
+  &kp Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P      &thrm_left LEFT_SHIFT A  &thrm_left LCTRL S  &thrm_left LEFT_ALT D  &thrm_left LEFT_GUI F  &thrm_left GLOBE G  &kp H  &thrm_right RIGHT_GUI J  &thrm_right RIGHT_ALT K  &thrm_right RCTRL L  &thrm_right RSHIFT APOS      &kp Z  &kp X  &kp C  &kp V  &kp B  &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH    &meta 0 TAB  &lt 4 SPACE  &lt 3 ESC  &lt 2 BACKSPACE  &lt 1 RETURN  &hyper 0 DELETE
+            >;
+        };
+
+        NUMBER {
+            bindings = <
+  &kp LBKT  &kp N7  &kp N8  &kp N9  &kp RBKT  &none  &none  &none  &none  &none      &kp SEMI  &kp N4  &kp N5  &kp N6  &kp EQUAL  &none  &kp RGUI  &kp RALT  &kp RCTRL  &kp RSHIFT      &kp GRAVE  &kp N1  &kp N2  &kp N3  &kp BSLH  &none  &none  &none  &none  &none    &kp N0  &kp MINUS  &kp LS(LA(N2))  &none  &none  &none
+            >;
+
+            label = "NUM";
+        };
+
+        SYMBOL {
+            bindings = <
+  &kp LEFT_BRACE  &kp AMPERSAND  &kp ASTERISK  &kp LEFT_PARENTHESIS  &kp RIGHT_BRACE  &none  &none  &none  &none  &none      &kp COLON  &kp DOLLAR  &kp PERCENT  &kp CARET  &kp PLUS  &none  &kp RIGHT_GUI  &kp RALT  &kp RCTRL  &kp RSHIFT      &kp TILDE  &kp EXCLAMATION  &kp AT_SIGN  &kp HASH  &kp PIPE  &none  &none  &none  &none  &none    &kp RIGHT_PARENTHESIS  &kp UNDERSCORE  &kp LS(LA(N8))  &none  &none  &none
+            >;
+
+            label = "SYM";
+        };
+
+        FUNCTION {
+            bindings = <
+  &kp F12  &kp F7  &kp F8  &kp F9  &screen_full  &kp C_BRI_DN  &kp C_BRI_INC  &none  &none  &screen_lock      &kp F11  &kp F4  &kp F5  &kp F6  &screen_area  &none  &thrm_right RIGHT_GUI C_PP  &thrm_right RIGHT_ALT C_PREV  &thrm_right RCTRL C_NEXT  &kp RSHIFT      &kp F10  &kp F1  &kp F2  &kp F3  &screen_adj  &none  &kp C_MUTE  &kp C_VOLUME_DOWN  &kp C_VOL_UP  &none    &none  &none  &none  &kp C_AC_SEARCH  &caps_logic CAPS 0  &emojis
+            >;
+
+            label = "FUN";
+        };
+
+        NAVIGATION {
+            bindings = <
+  &kp LG(BACKSPACE)  &kp LA(BACKSPACE)  &none  &key_repeat  &none  &none  &none  &none  &none  &none      &kp LSHIFT  &kp LCTRL  &kp LEFT_ALT  &kp LEFT_GUI  &kp GLOBE  &kp LEFT  &kp DOWN  &kp UP_ARROW  &kp RIGHT  &none      &kp LG(Z)  &kp LG(X)  &kp LG(C)  &kp LG(V)  &kp LS(LG(Z))  &kp HOME  &kp PG_DN  &kp PG_UP  &kp END  &kp INS    &none  &none  &none  &kp BACKSPACE  &kp RETURN  &hyper 0 DELETE
+            >;
+
+            label = "NAV";
+        };
+
+        SYSTEM {
+            label = "SYS";
+            bindings = <
+  &bootloader  &os  &smart_shift  &none  &none  &rgb_ug RGB_EFR  &rgb_ug RGB_EFF  &rgb_ug RGB_SPD  &rgb_ug RGB_SPI  &bootloader      &studio_unlock  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR  &none  &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &rgb_ug RGB_SAD  &rgb_ug RGB_SAI  &none      &sys_reset  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &none  &rgb_ug RGB_HUD  &rgb_ug RGB_HUI  &rgb_ug RGB_COLOR_HSB(0,0,100)  &rgb_ug RGB_TOG  &sys_reset    &none  &none  &none  &none  &none  &none
+            >;
+        };
+    };
+
+    conditional_layers { compatible = "zmk,conditional-layers"; };
+};
